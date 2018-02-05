@@ -14,12 +14,6 @@ class App extends Component {
     this.onFullyUpdate = this.onFullyUpdate.bind(this);
   }
 
-  update(){
-    this.setState({
-      text : this.refs.a.value,
-    })
-  }
-
   onFullyUpdate(data) {
 
     let updatedData = JSON.stringify(data);
