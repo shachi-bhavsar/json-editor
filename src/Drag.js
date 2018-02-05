@@ -1,44 +1,22 @@
 import React,{Component} from 'react';
 
 export default class Drag extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            container : []
-        }
-    }
-
+    
     list (data){
         const child = (items) => {
             if(items){
-                return <ul> {this.list(items)} </ul>
+                return <ul node={items}> {this.list(items)} </ul>
             }
         }
-        return data.map((node,index) => {
-            return <Item key = {node.id} name ={node.name} node={node}>
+        return data.map((node) => {
+            return <Item key = {node.id} name ={node.name} {...this.props} node={node}>
             {child(node.items)}
             </Item>
         })
     }
-    /*
-    onDrop = e => {
-        //const data = e.dataTransfer.getData("text/json")
-        var data = e.dataTransfer.getData("text/plain");
-        console.log(JSON.parse(data));
-       
-        let {container} = this.state;
-        container.push(data);
-        this.setState({container});
-        console.log("container:"+JSON.stringify(container))
-    }
-
-    allowDrop = ev => {
-        ev.preventDefault();
-    }
-    */
+    
     render(){
-        const {container} = this.state;
-
+       
         return(
             <div>
                     <div>
@@ -82,8 +60,7 @@ class Item extends Component {
 
     onDragStart = (e,v) => {
         e.dataTransfer.dropEffect = "move";  
-        e.dataTransfer.setData("text/plain",JSON.stringify(v));      
-        //e.dataTransfer.setData("text/json",v)
+        e.dataTransfer.setData("text/plain",JSON.stringify(v));  
         console.log("dragging")
     }
 
