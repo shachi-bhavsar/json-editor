@@ -29,6 +29,22 @@ export default class Drag extends React.Component {
             </div>
         )
     }
+    /*
+    onDrop = e => {
+        //const data = e.dataTransfer.getData("text/json")
+        var data = e.dataTransfer.getData("text/plain");
+        console.log(JSON.parse(data));
+       
+        let {container} = this.state;
+        container.push(data);
+        this.setState({container});
+        console.log("container:"+JSON.stringify(container))
+    }
+
+    allowDrop = ev => {
+        ev.preventDefault();
+    }
+    */
 }
 
 class Item extends Component {
@@ -64,7 +80,8 @@ class Item extends Component {
 
     onDragStart = (e,v) => {
         e.dataTransfer.dropEffect = "move";  
-        e.dataTransfer.setData("text/plain",JSON.stringify(v));     
+        e.dataTransfer.setData("text/plain",JSON.stringify(v));      
+        //e.dataTransfer.setData("text/json",v)
         console.log(v)
     }
 
