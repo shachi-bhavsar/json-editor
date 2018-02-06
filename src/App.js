@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import data from './data.js';
 import Drag from './Drag';
-import {JsonTree} from 'react-editable-json-tree'
+import {JsonTree} from './react-editable-json-tree/src/JsonTree'
 import jsonData from './data.json'
 
 class App extends Component {
