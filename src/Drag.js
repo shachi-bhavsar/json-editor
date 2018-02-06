@@ -9,9 +9,13 @@ export default class Drag extends React.Component {
             }
         }
         return data.map((node) => {
-            return <Item key = {node.id} name ={node.name} {...this.props} node={node}>
-            {child(node.items)}
-            </Item>
+            if(node){                
+                return <Item key={node.id} name ={node.name} {...this.props} node={node}>
+                {child(node.items)}
+                </Item>
+            }
+            else
+                return <span></span>
         })
     }
     
@@ -60,8 +64,8 @@ class Item extends Component {
 
     onDragStart = (e,v) => {
         e.dataTransfer.dropEffect = "move";  
-        e.dataTransfer.setData("text/plain",JSON.stringify(v));  
-        console.log("dragging")
+        e.dataTransfer.setData("text/plain",JSON.stringify(v));     
+        console.log(v)
     }
 
     render (){
