@@ -332,15 +332,21 @@ class JsonObject extends Component {
                     {plusMenuLayout} {minusElement}
                 </span>);
         }
-
-        return (<span className="rejt-not-collapsed">
+       
+        return (<span className="rejt-not-collapsed" >
             <span className="rejt-not-collapsed-delimiter" style={delimiter}>{startObject}</span>
             <ul className="rejt-not-collapsed-list" style={ul}>
                 {list}
             </ul>
-            <span className="rejt-not-collapsed-delimiter" style={delimiter}>{endObject}</span>
+            <span className="rejt-not-collapsed-delimiter" style={delimiter} >{endObject}</span>
             {menu}
         </span>);
+    }
+
+    onDragStart = (e,v) => {
+        e.dataTransfer.dropEffect = "move";  
+        e.dataTransfer.setData("text/plain",JSON.stringify(v));  
+       // console.log(v)
     }
 
     render() {
@@ -348,10 +354,9 @@ class JsonObject extends Component {
         const { getStyle, dataType } = this.props;
         const value = collapsed ? this.renderCollapsed() : this.renderNotCollapsed();
         const style = getStyle(name, data, keyPath, deep, dataType);
-
-        /* eslint-disable jsx-a11y/no-static-element-interactions */
+       // console.log(this.props.data)
         return (
-            <div className="rejt-object-node">
+            <div className="rejt-object-node" draggable="true" onDragStart={(e) => {this.onDragStart (e,this.props.data)}}>
                 <span onClick={this.handleCollapseMode}>
                     <span className="rejt-name" style={style.name}>{name} : </span>
                 </span>
