@@ -59,12 +59,12 @@ class JsonAddValue extends Component {
     onSubmit() {
         const { handleAdd, onlyValue } = this.props;
         const { inputRefKey, inputRefValue } = this.state;
-        console.log("inputrefValue: "+inputRefValue);
+        //console.log("inputrefValue: "+inputRefValue);
         let forParse
         for(let key in inputRefValue.refs) {
             forParse = inputRefValue.refs[key].value;
         }
-        console.log("forParse: "+forParse);
+        //console.log("forParse: "+forParse);
         const result = {
             newValue: parse(forParse),
         };
