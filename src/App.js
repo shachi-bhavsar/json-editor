@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import data from './data.js';
-import Drag from './Drag';
 import {JsonTree} from './react-editable-json-tree/src/JsonTree'
-import jsonData from './data.json'
+import jsonData from './masterConfig.json'
 
 class App extends Component {
   constructor(props){
@@ -25,14 +24,15 @@ class App extends Component {
   render() {
     return (
       <div style={{backgroundColor : 'black'}}>
-        <div style={{float:'left',width:"50%",backgroundColor:"#85DAB9"}}>
-            <Drag data={jsonData}/>
+        <div style={{float:'left',width:"50%",backgroundColor:"#85DAB9"}}>            
+            <JsonTree data={jsonData}
+            readOnly={true}
+            />
         </div>
         <div style={{float:'right',width:"45%",backgroundColor:'#CEF7E4'}}>
             <JsonTree data={data}  
                   onFullyUpdate={this.onFullyUpdate} 
-                  readOnly={(name, value, keyPath) => (keyPath[keyPath.length - 1] === 'id')}
-                />
+            />
         </div>
       </div>
     );
