@@ -345,6 +345,12 @@ class JsonArray extends Component {
         </span>);
     }
 
+    onDragStart = (e,v) => {
+        e.dataTransfer.dropEffect = "move";  
+        e.dataTransfer.setData("text/plain",JSON.stringify(v));  
+        console.log(v)
+    }
+
     render() {
         const { name, collapsed, data, keyPath, deep } = this.state;
         const { dataType, getStyle } = this.props;
@@ -353,7 +359,7 @@ class JsonArray extends Component {
 
         /* eslint-disable jsx-a11y/no-static-element-interactions */
         return (
-            <div className="rejt-array-node">
+            <div className="rejt-array-node" draggable="true" onDragStart={(e) => {this.onDragStart (e,this.props.data)}}>
                 <span onClick={this.handleCollapseMode}>
                     <span className="rejt-name" style={style.name}>{name} : </span>
                 </span>
