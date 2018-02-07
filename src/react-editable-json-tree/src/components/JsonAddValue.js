@@ -1,10 +1,4 @@
 /*
- * Author: Alexandre Havrileck (Oxyno-zeta)
- * Date: 22/10/16
- * Licence: See Readme
- */
-/* ************************************* */
-/* ********       IMPORTS       ******** */
 /* ************************************* */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -66,8 +60,13 @@ class JsonAddValue extends Component {
         const { handleAdd, onlyValue } = this.props;
         const { inputRefKey, inputRefValue } = this.state;
         console.log("inputrefValue: "+inputRefValue);
+        let forParse
+        for(let key in inputRefValue.refs) {
+            forParse = inputRefValue.refs[key].value;
+        }
+        console.log("forParse: "+forParse);
         const result = {
-            newValue: parse(inputRefValue),
+            newValue: parse(forParse),
         };
         // Check if we have the key
         if (!onlyValue) {
@@ -89,7 +88,7 @@ class JsonAddValue extends Component {
     }
 
     refInputValue(node) {
-        console.log(node)
+        //console.log(node)
         this.setState({
             inputRefValue: node,
         });
