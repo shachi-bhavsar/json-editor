@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { HotKeys } from 'react-hotkeys';
 import parse from '../utils/parse';
+import DropComponent from '../DropComponent'
 /* ************************************* */
 /* ********      VARIABLES      ******** */
 /* ************************************* */
@@ -29,7 +30,7 @@ const defaultProps = {
     onlyValue: false,
     addButtonElement: <button>+</button>,
     cancelButtonElement: <button>c</button>,
-    inputElement: <input onKeyPress={this.onKeyPress}/>,
+    inputElement: <DropComponent/>,
 };
 
 /* ************************************* */
@@ -64,8 +65,9 @@ class JsonAddValue extends Component {
     onSubmit() {
         const { handleAdd, onlyValue } = this.props;
         const { inputRefKey, inputRefValue } = this.state;
+        console.log("inputrefValue: "+inputRefValue);
         const result = {
-            newValue: parse(inputRefValue.value),
+            newValue: parse(inputRefValue),
         };
         // Check if we have the key
         if (!onlyValue) {
@@ -87,15 +89,10 @@ class JsonAddValue extends Component {
     }
 
     refInputValue(node) {
+        console.log(node)
         this.setState({
             inputRefValue: node,
         });
-    }
-    onKeyPress(event) {
-        if (event.which === 13 /* Enter */) {
-          event.preventDefault();
-        }
-        console.log("key pressed")
     }
     render() {
         const { handleCancel, onlyValue, addButtonElement, cancelButtonElement, inputElement } = this.props;
