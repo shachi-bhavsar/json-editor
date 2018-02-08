@@ -8,6 +8,7 @@ export default class DropComponent extends React.Component {
             container : []
         }
         this.onKeyPress = this.onKeyPress.bind(this);
+        this.onDrop = this.onDrop.bind(this);
     }
 
     onDrop = e => {
@@ -16,7 +17,7 @@ export default class DropComponent extends React.Component {
         let {container} = this.state;
         container.push(data);
         this.setState({container});
-        console.log("state: "+this.state.container);
+       // console.log("state: "+this.state.container);
     }  
 
     allowDrop = ev => {
@@ -37,7 +38,7 @@ export default class DropComponent extends React.Component {
     }
     render(){
         return(               
-                <input onChange={this.onKeyPress} value={this.state.container} ref={this.state.container} onDragOver={this.allowDrop} onDrop={this.onDrop}/>
+                <input onChange={this.onKeyPress} value={this.state.container} ref={this.state.container} onDragOver={this.allowDrop} onDrop={(e) => {this.onDrop(e)}}/>
         )
     }
 }
