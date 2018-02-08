@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from './data.js';
+import data from './data.json'
 import {JsonTree} from './react-editable-json-tree/src/JsonTree'
 import jsonData from './masterConfig.json'
 
@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   onFullyUpdate(data) {
-    
       this.setState({
           data : {data},
       });
