@@ -344,9 +344,12 @@ class JsonObject extends Component {
     }
 
     onDragStart = (e,v) => {
-        e.dataTransfer.dropEffect = "move";  
-        e.dataTransfer.setData("text/plain",JSON.stringify(v));  
-       // console.log(v)
+        if(e.dataTransfer.dropEffect !== "move"){
+
+            e.dataTransfer.dropEffect = "move";  
+            e.dataTransfer.setData("text/plain",JSON.stringify(v));  
+            console.log(JSON.stringify(v))
+        }
     }
 
     render() {
@@ -354,9 +357,9 @@ class JsonObject extends Component {
         const { getStyle, dataType } = this.props;
         const value = collapsed ? this.renderCollapsed() : this.renderNotCollapsed();
         const style = getStyle(name, data, keyPath, deep, dataType);
-       // console.log(this.props.data)
+        //console.log(this.state.data)
         return (
-            <div className="rejt-object-node" draggable="true" onDragStart={(e) => {this.onDragStart (e,this.props.data)}}>
+            <div className="rejt-object-node" draggable="true" onDragStart={(e) => {this.onDragStart (e,this.state.data)}}>
                 <span onClick={this.handleCollapseMode}>
                     <span className="rejt-name" style={style.name}>{name} : </span>
                 </span>
