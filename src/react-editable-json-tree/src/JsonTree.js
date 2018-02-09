@@ -89,6 +89,9 @@ class JsonTree extends Component {
         });
     }
 
+    shouldComponentUpdate(nextProps) {
+        return nextProps.data === this.props.data;
+    }
     onUpdate(key, data) {
         this.setState({
             data,
@@ -127,6 +130,7 @@ class JsonTree extends Component {
         }
 
         if (dataType === 'Array') {
+            
             node = (<JsonNode
                 data={data}
                 name={rootName}
@@ -151,6 +155,7 @@ class JsonTree extends Component {
             />);
         }
         else if (dataType === 'Object') {
+            
             node = (<JsonNode
                 data={data}
                 name={rootName}
