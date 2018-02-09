@@ -23,16 +23,17 @@ class App extends Component {
  
   render() {
     return (
-      <div style={{backgroundColor : 'black'}}>
-        <div style={{float:'left',width:"50%",backgroundColor:"#CEF7E4"}}>            
+      <div>
+        <div style={{float:'left',width:"50%",backgroundColor:"black"}}>            
             <JsonTree data={jsonData}
               readOnly={true}
               isCollapsed = {(keyPath, deep) => (deep !== 0)}
             />
         </div>
-        <div style={{float:'right',width:"45%",backgroundColor:'#CEF7E4'}}>
+        <div style={{float:'right',width:"45%",backgroundColor:'black'}}>
             <JsonTree data={this.state.data}  
                   onFullyUpdate={this.onFullyUpdate} 
+                  readOnly={(name, value, keyPath) => (keyPath[keyPath.length - 1] === 'id')}
             />
         </div>
       </div>
