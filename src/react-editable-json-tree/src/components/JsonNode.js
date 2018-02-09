@@ -67,7 +67,7 @@ class JsonNode extends Component {
             data: nextProps.data,
         });
     }
-
+   
     render() {
         const { data, name, keyPath, deep } = this.state;
         const {
