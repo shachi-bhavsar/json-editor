@@ -14,11 +14,11 @@ class App extends Component {
 
   onFullyUpdate(data) {
 
-    let updatedData = JSON.stringify(data);
+    //let updatedData = JSON.stringify(data);
       this.setState({
           data : {data},
       });
-      console.log(updatedData);
+      //console.log(updatedData);
   }
  
   render() {
