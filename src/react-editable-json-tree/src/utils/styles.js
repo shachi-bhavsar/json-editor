@@ -20,9 +20,11 @@ const object = {
         color: 'green',
     },
     collapsed: {
-        color: 'grey',
+        color: '#D4D4D6',
     },
-    delimiter: {},
+    delimiter: {
+        color: '#D4D4D6',
+    },
     ul: {
         padding: '0px',
         margin: '0 0 0 25px',
@@ -41,9 +43,11 @@ const array = {
         color: 'green',
     },
     collapsed: {
-        color: 'grey',
+        color: '#D4D4D6',
     },
-    delimiter: {},
+    delimiter: {
+        color: '#D4D4D6',
+    },
     ul: {
         padding: '0px',
         margin: '0 0 0 25px',
