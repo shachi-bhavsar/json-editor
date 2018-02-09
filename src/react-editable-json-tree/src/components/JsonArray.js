@@ -350,7 +350,7 @@ class JsonArray extends Component {
 
             e.dataTransfer.dropEffect = "move";  
             e.dataTransfer.setData("text/plain",JSON.stringify(v));  
-            console.log(JSON.stringify(v))
+            //console.log(JSON.stringify(v))
         }
     }
 
