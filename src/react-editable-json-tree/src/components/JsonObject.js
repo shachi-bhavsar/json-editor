@@ -357,7 +357,7 @@ class JsonObject extends Component {
         const { getStyle, dataType } = this.props;
         const value = collapsed ? this.renderCollapsed() : this.renderNotCollapsed();
         const style = getStyle(name, data, keyPath, deep, dataType);
-        //console.log(this.state.data)
+        console.log(deep)
         return (
             <div className="rejt-object-node" draggable="true" onDragStart={(e) => {this.onDragStart (e,this.state.data)}}>
                 <span onClick={this.handleCollapseMode}>
