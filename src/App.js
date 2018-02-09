@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div style={{backgroundColor : 'black'}}>
-        <div style={{float:'left',width:"50%",backgroundColor:"#85DAB9"}}>            
+        <div style={{float:'left',width:"50%",backgroundColor:"#CEF7E4"}}>            
             <JsonTree data={jsonData}
               readOnly={true}
               isCollapsed = {(keyPath, deep) => (deep !== 0)}
