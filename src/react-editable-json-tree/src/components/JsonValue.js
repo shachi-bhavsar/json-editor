@@ -113,9 +113,8 @@ class JsonValue extends Component {
     }
 
     refInput(node) {
-        this.setState({
-            inputRef: node,
-        });
+        
+        this.state.inputRef = node;
     }
 
     handleCancelEdit() {
